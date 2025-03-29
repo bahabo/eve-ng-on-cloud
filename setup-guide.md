@@ -52,7 +52,44 @@ By completing these steps, you’ve created a boot disk template for Ubuntu 22.0
 
 ## Step 4: SSH Into the VM
 1. Once the VM is up, click the **SSH** button next to your instance to open a terminal window.
-2. Update the system packages:
-   ```bash
-   sudo apt update
-   sudo apt upgrade -y
+
+## Step 5: Become Root
+To gain root access, run the following command:
+```bash
+sudo -i
+```
+
+## Step 6: Start EVE-CE Installation
+Use `wget` to download and start the installation script for EVE-NG:
+```bash
+wget -O - https://www.eve-ng.net/jammy/install-eve.sh | bash -i
+```
+
+## Step 7: Update and Upgrade EVE-CE
+Once the installation completes, update and upgrade your system:
+```bash
+apt update
+apt upgrade
+```
+Confirm with `Y` when prompted.
+
+## Step 8: Reboot EVE-CE
+After upgrading, reboot your system. Allow some time for the reboot, and then click on “Reconnect” in your browser.
+
+## Step 9: Setup IP
+When the IP setup wizard appears, press `Ctrl + C` to exit, then become root again with:
+```bash
+sudo -i
+```
+Now, follow the IP setup wizard and set your IP as **DHCP**.
+
+## Step 10: Reboot EVE-CE Again
+Once the IP configuration is complete, reboot your system once more.
+
+## Step 11: Access EVE-CE on Google Cloud
+After rebooting, you can access your EVE-NG Community Edition via HTTPS using the public IP address.
+
+### Default Web Login:
+- Username: `admin`
+- Password: `eve`
+
